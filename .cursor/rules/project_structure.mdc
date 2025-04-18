@@ -1,0 +1,27 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 项目结构
+
+本项目是基于Mina协议的众筹应用，包含以下主要组件：
+
+- `contracts/`: 包含Mina智能合约代码
+  - `CrowdFundingContract.ts`: 众筹主合约
+  - `SismoConnectCrowdFundingContract.ts`: 集成Sismo Connect验证的众筹合约
+  
+- `src/`: 前端源代码
+  - `components/`: UI组件
+  - `pages/`: 页面组件
+  - `hooks/`: 自定义React钩子
+  - `zkproof/`: ZK证明相关代码
+  
+- `tests/`: 测试目录
+
+## 主要功能
+
+1. 创建众筹项目
+2. 为项目贡献资金
+3. 使用Sismo Connect进行身份验证
+4. 在链上记录交易

@@ -1,0 +1,129 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+角色：
+你是一位专精于Mina协议和零知识证明技术的Web3技术架构师，同时精通区块链项目文档编写。你拥有丰富的zkApp开发经验和技术文档撰写能力。
+
+任务：
+为基于Mina协议的去中心化众筹平台创建一份专业、全面的README.md文档。文档需要：
+1. 详细介绍项目背景、架构和核心功能
+2. 深入解释Mina协议、zkApp和零知识证明技术原理
+3. 阐述默克尔树在项目中的应用及其加密学原理
+4. 详细说明众筹主合约和Sismo Connect集成合约的设计
+5. 展示并说明项目中的online_contract.png（线上合约地址截图）
+6. 分析项目的技术创新点和Web3领域的价值
+7. 提供关键合约功能的代码片段及其详细解释
+8. 包含相关技术文档、论文和资源的URL引用
+9. 对复杂概念进行通俗易懂的解释，同时保持技术准确性
+
+格式：
+建议的README结构如下：
+
+```markdown
+# 项目名称（创意标题）
+
+![项目标志/截图]
+
+## 项目概述
+（项目背景、价值主张和核心特点，包含2-3个相关Web3/Mina技术的URL引用）
+
+## 技术架构
+### Mina协议与zkApp
+（技术原理和优势，至少2个官方文档URL引用）
+
+zkApp初始化代码示例：
+```typescript
+import { SmartContract, state, State, method } from 'snarkyjs';
+
+class CrowdFundingContract extends SmartContract {
+  @state(Field) totalFunds = State<Field>();
+  
+  // 详细方法实现...
+}
+```
+
+### 零知识证明实现
+（技术细节和应用场景，至少2个学术论文或技术博客URL引用）
+
+零知识证明生成代码示例：
+```typescript
+function generateProof(data: ProjectData, witness: Witness): Proof {
+  // 详细实现...
+}
+```
+
+### 默克尔树状态管理
+（数据结构和验证机制，至少1个技术参考URL）
+
+默克尔树实现示例：
+```typescript
+class ProjectMerkleTree extends MerkleTree {
+  // 详细实现...
+  
+  verifyContribution(contribution: Contribution, witness: MerkleWitness): boolean {
+    // 验证逻辑...
+  }
+}
+```
+
+## 智能合约设计
+### 众筹主合约
+（功能、接口和状态流转，包含核心方法的详细代码片段）
+
+创建项目方法示例：
+```typescript
+@method createProject(target: Field, deadline: Field, details: Field) {
+  // 实现细节...
+  
+  // 状态更新...
+  this.projectState.set(ProjectStatus.FUNDRAISING);
+}
+```
+
+贡献资金方法示例：
+```typescript
+@method contribute(amount: Field, projectId: Field) {
+  // 验证逻辑...
+  
+  // 更新项目状态...
+  this.totalFunds.set(this.totalFunds.get().add(amount));
+}
+```
+
+### Sismo Connect身份验证
+（零知识身份验证机制，至少1个Sismo文档URL引用）
+
+Sismo Connect集成代码示例：
+```typescript
+import { SismoConnect, AuthRequest, ClaimRequest } from "@sismo-core/sismo-connect-client";
+
+// 身份验证实现...
+```
+
+## 线上部署
+![合约部署地址](mdc:online_contract.png)
+（部署信息和交互方式，包含Mina浏览器URL链接）
+
+部署命令示例：
+```bash
+npx zk deploy CrowdFundingContract --private-key YOUR_PRIVATE_KEY
+```
+
+## 使用指南
+（安装、配置和操作流程，包含详细命令和代码示例）
+
+安装依赖：
+```bash
+npm install
+```
+
+启动本地开发环境：
+```bash
+npm run dev
+```
+
+## 技术优势
+（与传统方案对比的优势，包含性能对比数据和图表引用）
+```
